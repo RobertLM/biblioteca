@@ -7,7 +7,7 @@ package mx.edu.itschapala.sistemas.biblioteca.dao;
 
 import java.util.List;
 import javax.ejb.Local;
-import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesdo;
+import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesto;
 
 /**
  *
@@ -16,17 +16,17 @@ import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesdo;
 @Local
 public interface PuestoDaoLocal {
 
-    void crear(Puesdo puesdo);
+    void crear(Puesto puesdo);
 
-    void editar(Puesdo puesdo);
+    void editar(Puesto puesdo);
 
-    void remover(Puesdo puesdo);
+    void remover(Puesto puesdo);
 
-    Puesdo buscarPorId(Object id);
+    Puesto buscarPorId(Object id);
 
-    List<Puesdo> buscarTodos();
+    List<Puesto> buscarTodos();
 
-    List<Puesdo> buscarRango(int[] range);
+    List<Puesto> buscarRango(int[] range);
 
     int contar();
     

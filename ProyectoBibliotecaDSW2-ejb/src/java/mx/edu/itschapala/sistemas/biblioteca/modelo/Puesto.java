@@ -28,14 +28,14 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Admin
  */
 @Entity
-@Table(name = "puesdo")
+@Table(name = "puesto")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Puesdo.findAll", query = "SELECT p FROM Puesdo p"),
-    @NamedQuery(name = "Puesdo.findById", query = "SELECT p FROM Puesdo p WHERE p.id = :id"),
-    @NamedQuery(name = "Puesdo.findByNombre", query = "SELECT p FROM Puesdo p WHERE p.nombre = :nombre"),
-    @NamedQuery(name = "Puesdo.findByDescripcion", query = "SELECT p FROM Puesdo p WHERE p.descripcion = :descripcion")})
-public class Puesdo implements Serializable {
+    @NamedQuery(name = "Puesto.findAll", query = "SELECT p FROM Puesto p"),
+    @NamedQuery(name = "Puesto.findById", query = "SELECT p FROM Puesto p WHERE p.id = :id"),
+    @NamedQuery(name = "Puesto.findByNombre", query = "SELECT p FROM Puesto p WHERE p.nombre = :nombre"),
+    @NamedQuery(name = "Puesto.findByDescripcion", query = "SELECT p FROM Puesto p WHERE p.descripcion = :descripcion")})
+public class Puesto implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,14 +55,14 @@ public class Puesdo implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPuesto")
     private List<Empleado> empleadoList;
 
-    public Puesdo() {
+    public Puesto() {
     }
 
-    public Puesdo(Integer id) {
+    public Puesto(Integer id) {
         this.id = id;
     }
 
-    public Puesdo(Integer id, String nombre, String descripcion) {
+    public Puesto(Integer id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -111,10 +111,10 @@ public class Puesdo implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Puesdo)) {
+        if (!(object instanceof Puesto)) {
             return false;
         }
-        Puesdo other = (Puesdo) object;
+        Puesto other = (Puesto) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -123,7 +123,7 @@ public class Puesdo implements Serializable {
 
     @Override
     public String toString() {
-        return "mx.edu.itschapala.sistemas.biblioteca.Puesdo[ id=" + id + " ]";
+        return "mx.edu.itschapala.sistemas.biblioteca.modelo.Puesto[ id=" + id + " ]";
     }
     
 }

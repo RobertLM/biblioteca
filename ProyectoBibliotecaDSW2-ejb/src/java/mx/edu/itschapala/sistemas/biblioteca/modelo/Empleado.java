@@ -101,7 +101,7 @@ public class Empleado implements Serializable {
     private String correo;
     @JoinColumn(name = "idPuesto", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Puesdo idPuesto;
+    private Puesto idPuesto;
 
     public Empleado() {
     }
@@ -219,11 +219,11 @@ public class Empleado implements Serializable {
         this.correo = correo;
     }
 
-    public Puesdo getIdPuesto() {
+    public Puesto getIdPuesto() {
         return idPuesto;
     }
 
-    public void setIdPuesto(Puesdo idPuesto) {
+    public void setIdPuesto(Puesto idPuesto) {
         this.idPuesto = idPuesto;
     }
 
@@ -249,7 +249,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "mx.edu.itschapala.sistemas.biblioteca.Empleado[ id=" + id + " ]";
+        return "mx.edu.itschapala.sistemas.biblioteca.modelo.Empleado[ id=" + id + " ]";
     }
     
 }

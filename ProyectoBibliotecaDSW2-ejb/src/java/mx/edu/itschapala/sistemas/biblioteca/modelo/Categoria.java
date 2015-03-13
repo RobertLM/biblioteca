@@ -123,7 +123,7 @@ public class Categoria implements Serializable {
 
     @Override
     public String toString() {
-        return "mx.edu.itschapala.sistemas.biblioteca.Categoria[ id=" + id + " ]";
+        return "mx.edu.itschapala.sistemas.biblioteca.modelo.Categoria[ id=" + id + " ]";
     }
     
 }

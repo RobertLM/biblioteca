@@ -9,7 +9,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import mx.edu.itschapala.sistemas.biblioteca.dao.PuestoDaoLocal;
-import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesdo;
+import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesto;
 
 /**
  *
@@ -21,30 +21,30 @@ public class PuestoBL implements PuestoBLLocal {
     private PuestoDaoLocal puestoDao;
 
     @Override
-    public boolean registrar(Puesdo puesto) {
+    public boolean registrar(Puesto puesto) {
         puestoDao.crear(puesto);
         return false;
     }
 
     @Override
-    public boolean eliminar(Puesdo puesto) {
+    public boolean eliminar(Puesto puesto) {
         puestoDao.remover(puesto);
         return false;
     }
 
     @Override
-    public boolean modificar(Puesdo puesto) {
+    public boolean modificar(Puesto puesto) {
         puestoDao.editar(puesto);
         return false;
     }
 
     @Override
-    public List<Puesdo> getLista() {
+    public List<Puesto> getLista() {
         return puestoDao.buscarTodos();
     }
 
     @Override
-    public Puesdo getPorId(int id) {
+    public Puesto getPorId(int id) {
         return puestoDao.buscarPorId(id);
     }
     

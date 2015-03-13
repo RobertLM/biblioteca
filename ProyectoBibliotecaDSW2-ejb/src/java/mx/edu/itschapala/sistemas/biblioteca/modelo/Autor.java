@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -124,7 +123,7 @@ public class Autor implements Serializable {
 
     @Override
     public String toString() {
-        return "mx.edu.itschapala.sistemas.biblioteca.Autor[ id=" + id + " ]";
+        return "mx.edu.itschapala.sistemas.biblioteca.modelo.Autor[ id=" + id + " ]";
     }
     
 }

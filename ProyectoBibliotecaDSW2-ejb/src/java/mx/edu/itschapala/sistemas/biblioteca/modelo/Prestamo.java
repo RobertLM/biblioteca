@@ -84,7 +84,7 @@ public class Prestamo implements Serializable {
 
     @Override
     public String toString() {
-        return "mx.edu.itschapala.sistemas.biblioteca.Prestamo[ id=" + id + " ]";
+        return "mx.edu.itschapala.sistemas.biblioteca.modelo.Prestamo[ id=" + id + " ]";
     }
     
 }

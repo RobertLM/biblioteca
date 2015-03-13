@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>LIBROS</title>
+    </h:head>
+    <h:body style="background:url('img/fondo.jpg')">
+        <center>
+        <h1>Lista de libros</h1>
+        <br/>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{libroBean.lista}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Titulo"/>
+                        </f:facet>
+                        <h:outputText value="#{item.titulo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Isbn"/>
+                        </f:facet>
+                        <h:outputText value="#{item.isbn}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Estado"/>
+                        </f:facet>
+                        <h:outputText value="#{item.estado}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="NumPaginas"/>
+                        </f:facet>
+                        <h:outputText value="#{item.numPaginas}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Abstracto"/>
+                        </f:facet>
+                        <h:outputText value="#{item.abstracto}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Imagen"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imagen}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Librocol"/>
+                        </f:facet>
+                        <h:outputText value="#{item.librocol}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+        </center>
+    </h:body>
+</html>
+

@@ -8,14 +8,14 @@ package mx.edu.itschapala.sistemas.biblioteca.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesdo;
+import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesto;
 
 /**
  *
  * @author Admin
  */
 @Stateless
-public class PuestoDao extends AbstractDao<Puesdo> implements PuestoDaoLocal {
+public class PuestoDao extends AbstractDao<Puesto> implements PuestoDaoLocal {
     @PersistenceContext(unitName = "ProyectoBibliotecaDSW2-ejbPU")
     private EntityManager em;
 
@@ -25,7 +25,7 @@ public class PuestoDao extends AbstractDao<Puesdo> implements PuestoDaoLocal {
     }
 
     public PuestoDao() {
-        super(Puesdo.class);
+        super(Puesto.class);
     }
     
 }

@@ -7,7 +7,7 @@ package mx.edu.itschapala.sistemas.biblioteca.bl;
 
 import java.util.List;
 import javax.ejb.Local;
-import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesdo;
+import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesto;
 
 /**
  *
@@ -16,14 +16,14 @@ import mx.edu.itschapala.sistemas.biblioteca.modelo.Puesdo;
 @Local
 public interface PuestoBLLocal {
 
-    boolean registrar(Puesdo puesto);
+    boolean registrar(Puesto puesto);
 
-    boolean eliminar(Puesdo puesto);
+    boolean eliminar(Puesto puesto);
 
-    boolean modificar(Puesdo puesto);
+    boolean modificar(Puesto puesto);
 
-    List<Puesdo> getLista();
+    List<Puesto> getLista();
 
-    Puesdo getPorId(int id);
+    Puesto getPorId(int id);
     
 }
