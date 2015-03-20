@@ -12,6 +12,7 @@
         <br/>
         
         <f:view>
+            <h:commandButton action="AutorCrearEditar" value="Nuevo" actionListener="#{autorBean.prepararNuevo}"/>
             <h:form>
                 <h1><h:outputText value="Lista"/></h1>
                 <h:dataTable value="#{autorBean.lista}" var="item">
@@ -32,6 +33,16 @@
                             <h:outputText value="Apellido"/>
                         </f:facet>
                         <h:outputText value="#{item.apellido}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton action="AutorCrearEditar" value="Editar" actionListener="#{autorBean.prepararEditar}">
+                            <f:setPropertyActionListener target="#{autorBean.autor}" value="#{item}"/>
+                        </h:commandButton>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton action="AutorConfirmar" value="Eliminar" actionListener="#{autorBean.prepararEliminar}">
+                            <f:setPropertyActionListener target="#{autorBean.autor}" value="#{item}"/>
+                        </h:commandButton>
                     </h:column>
                 </h:dataTable>
             </h:form>
