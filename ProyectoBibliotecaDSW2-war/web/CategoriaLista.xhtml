@@ -11,9 +11,8 @@
             <h1>Lista de Categorias</h1>
             <br/>
             <f:view>
-
-
                 <h:form>
+                    <h:commandButton action="CategoriaCrearEditar" value="Nuevo" actionListener="#{categoriaBean.prepararNuevo}"/>
                     <h1><h:outputText value="List"/></h1>
                     <h:dataTable value="#{categoriaBean.lista}" var="item">
                         <h:column>
@@ -33,6 +32,16 @@
                                 <h:outputText value="Descripcion"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <h:commandButton action="CategoriaCrearEditar" value="Editar" actionListener="#{categoriaBean.prepararEditar}">
+                                <f:setPropertyActionListener target="#{categoriaBean.categoria}" value="#{item}"/>
+                            </h:commandButton>
+                        </h:column>
+                        <h:column>
+                            <h:commandButton action="CategoriaConfirmar" value="Eliminar" actionListener="#{categoriaBean.prepararEliminar()}">
+                                <f:setPropertyActionListener target="#{categoriaBean.categoria}" value="#{item}"/>
+                            </h:commandButton>
                         </h:column>
                     </h:dataTable>
                 </h:form>

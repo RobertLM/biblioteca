@@ -37,8 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Libro.findByTitulo", query = "SELECT l FROM Libro l WHERE l.titulo = :titulo"),
     @NamedQuery(name = "Libro.findByIsbn", query = "SELECT l FROM Libro l WHERE l.isbn = :isbn"),
     @NamedQuery(name = "Libro.findByEstado", query = "SELECT l FROM Libro l WHERE l.estado = :estado"),
-    @NamedQuery(name = "Libro.findByNumPaginas", query = "SELECT l FROM Libro l WHERE l.numPaginas = :numPaginas"),
-    @NamedQuery(name = "Libro.findByLibrocol", query = "SELECT l FROM Libro l WHERE l.librocol = :librocol")})
+    @NamedQuery(name = "Libro.findByNumPaginas", query = "SELECT l FROM Libro l WHERE l.numPaginas = :numPaginas")})
 public class Libro implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -69,9 +68,6 @@ public class Libro implements Serializable {
     @Lob
     @Column(name = "imagen")
     private byte[] imagen;
-    @Size(max = 45)
-    @Column(name = "librocol")
-    private String librocol;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLibro")
     private List<LibroCategoria> libroCategoriaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLibro")
@@ -145,14 +141,6 @@ public class Libro implements Serializable {
 
     public void setImagen(byte[] imagen) {
         this.imagen = imagen;
-    }
-
-    public String getLibrocol() {
-        return librocol;
-    }
-
-    public void setLibrocol(String librocol) {
-        this.librocol = librocol;
     }
 
     @XmlTransient
