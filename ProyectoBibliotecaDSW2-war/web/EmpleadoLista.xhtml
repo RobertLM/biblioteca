@@ -10,9 +10,8 @@
         <center>
         <h1>Lista de Empleados</h1>
         <f:view>
-
-
             <h:form>
+                <h:commandButton action="EmpleadoCrearEditar" value="Nuevo" actionListener="#{empleadoBean.prepararNuevo}"/>
                 <h1><h:outputText value="List"/></h1>
                 <h:dataTable value="#{empleadoBean.lista}" var="item">
                     <h:column>
@@ -91,7 +90,17 @@
                         <f:facet name="header">
                             <h:outputText value="IdPuesto"/>
                         </f:facet>
-                        <h:outputText value="#{item.idPuesto}"/>
+                        <h:outputText value="#{item.idPuesto.nombre}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton action="EmplearCrearEditar" value="Editar" actionListener="#{empleadoBean.prepararEditar()}">
+                            <f:setPropertyActionListener target="#{empleadoBean.empleado}" value="#{item}"/>
+                        </h:commandButton>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton action="EmpleadoConfirmar" value="Eliminar" actionListener="#{empleadoBean.prepararEliminar()}">
+                            <f:setPropertyActionListener target="#{empleadoBean.empleado}" value="#{item}"/>
+                        </h:commandButton>
                     </h:column>
                 </h:dataTable>
             </h:form>

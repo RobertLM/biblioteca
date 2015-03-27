@@ -15,7 +15,7 @@
             <h:form>
                 <h:commandButton action="AutorCrearEditar" value="Nuevo" actionListener="#{autorBean.prepararNuevo}"/>
                 <h1><h:outputText value="Lista"/></h1>
-                <h:dataTable value="#{autorBean.lista}" var="item">
+                <h:dataTable value="#{autorBean.lista}" var="item" border="2" width="65%">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Id"/>
