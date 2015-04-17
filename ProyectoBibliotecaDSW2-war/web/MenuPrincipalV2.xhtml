@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
@@ -12,7 +13,30 @@
             </ui:define>
 
             <ui:define name="content">
-                content
+                <center>
+        <h:form>
+            <table>
+                <tr>
+                    <td>Lista de autores</td><td> <h:commandButton action="AutorLista" value="Ir a autores" style="width: 150px"/></td>
+                </tr>
+                <tr>
+                    <td>Lista de categorias</td><td> <h:commandButton action="CategoriaLista" value="Ir a categorias" style="width: 150px"/></td>
+                </tr>
+                <tr>
+                    <td>Lista de empleados</td><td> <h:commandButton action="EmpleadoLista" value="Ir a Empleados" style="width: 150px"/></td>
+                </tr>
+                <tr>
+                    <td>Lista de Libros</td><td> <h:commandButton action="LibroLista" value="Ir a Libros" style="width: 150px"/></td>
+                </tr>
+                <tr>
+                    <td>Lista de puestos</td><td><h:commandButton action="PuestoLista" value="Ir a puestos" style="width: 150px"/></td>
+                </tr>
+                <tr>
+                    <td>Lista de usuarios</td><td><h:commandButton action="UsuarioLista" value="Ir a usuarios" style="width: 150px"/></td>
+                </tr>
+            </table>
+        </h:form>
+        </center>
             </ui:define>
 
         </ui:composition>
