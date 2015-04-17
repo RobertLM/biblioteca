@@ -75,14 +75,14 @@ public String procesarPeticion(){
             break;
     }
     accion=Accion.NADA;
-    return "CategoriaLista";
+    return "CategoriaListav2";
 }
 
 public String procesarCancelar(){
     if(accion==Accion.ELIMINAR){
-        return "CategoriaLista";
+        return "CategoriaListav2";
     }else{
-        return "CategoriaCrearEditar";
+        return "CategoriaCrearEditarv2";
     }
 }
 

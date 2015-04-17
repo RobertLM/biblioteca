@@ -76,14 +76,14 @@ public class UsuarioBean {
              break;
      }
      accion=Accion.NADA;
-     return "UsuarioLista";
+     return "UsuarioListav2";
     }
     
     public String procesarCancelar(){
         if(accion==Accion.ELIMINAR){
-            return "UsuarioLista";
+            return "UsuarioListav2";
         }else{
-            return "UsuarioCrearEditar";
+            return "UsuarioCrearEditarv2";
         }
     }
     

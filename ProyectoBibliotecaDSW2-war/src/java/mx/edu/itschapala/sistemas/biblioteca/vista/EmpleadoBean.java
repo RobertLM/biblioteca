@@ -94,14 +94,14 @@ public class EmpleadoBean {
                 break;
         }
         accion=Accion.NADA;
-        return "EmpleadoLista";
+        return "EmpleadoListav2";
     }
     
     public String procesarCancelar(){
         if(accion==Accion.ELIMINAR){
-            return "EmpleadoLista";
+            return "EmpleadoListav2";
         }else{
-            return "EmpleadoCrearEditar";
+            return "EmpleadoCrearEditarv2";
         }
     }
     

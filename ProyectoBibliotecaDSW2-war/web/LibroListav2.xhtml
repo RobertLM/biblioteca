@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./TemplatePrincipal.xhtml">
+
+            <ui:define name="content">
+                <center>
+        <h1>Lista de libros</h1>
+        <br/>
+        <f:view>
+            <h:form>
+                <h:commandButton action="LibroCrearEditarv2" value="Nuevo" actionListener="#{libroBean.prepararNuevo}"/>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{libroBean.lista}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Titulo"/>
+                        </f:facet>
+                        <h:outputText value="#{item.titulo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Isbn"/>
+                        </f:facet>
+                        <h:outputText value="#{item.isbn}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Estado"/>
+                        </f:facet>
+                        <h:outputText value="#{item.estado}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="NumPaginas"/>
+                        </f:facet>
+                        <h:outputText value="#{item.numPaginas}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Abstracto"/>
+                        </f:facet>
+                        <h:outputText value="#{item.abstracto}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Imagen"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imagen}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton action="LibroCrearEditarv2" value="Editar" actionListener="#{libroBean.prepararEditar}">
+                            <f:setPropertyActionListener target="#{libroBean.libro}" value="#{item}"/>
+                        </h:commandButton>      
+                    </h:column>
+                    <h:column>
+                        <h:commandButton action="LibroConfirmarv2" value="Eliminar" actionListener="#{libroBean.prepararEliminar}">
+                            <f:setPropertyActionListener target="#{libroBean.libro}" value="#{item}"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+        </center>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

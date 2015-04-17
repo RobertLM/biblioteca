@@ -77,14 +77,14 @@ public class PuestoBean {
                 puestoBL.eliminar(puesto);
         }
         accion=Accion.NADA;
-        return "PuestoLista";
+        return "PuestoListav2";
     }
     
     public String procesarCancelar(){
         if(accion==Accion.ELIMINAR){
-            return "PuestoLista";
+            return "PuestoListav2";
         }else{
-            return "PuestoCrearEditar";
+            return "PuestoCrearEditarv2";
         }
     }
     
