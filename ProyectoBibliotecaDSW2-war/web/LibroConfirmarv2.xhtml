@@ -30,6 +30,19 @@
                     <h:outputText value="#{libroBean.libro.abstracto}" title="Abstracto"/>
                     <h:outputText value="Imagen:"/>
                     <h:outputText value="#{libroBean.libro.imagen}" title="Imagen"/>
+                    
+                </h:panelGrid>
+                <h1><h:outputText value="Autores"/></h1>
+                        <h:dataTable value="#{libroBean.listaAutorLibro}" var="item">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="IdAutor"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idAutor.nombre} #{item.idAutor.apellido}"/>
+                            </h:column>
+                        </h:dataTable>
+                <br/><br/>
+                <h:panelGrid columns="2">
                     <h:commandButton action="#{libroBean.procesarPeticion()}" value="Aceptar"/>
                     <h:commandButton action="#{libroBean.procesarCancelar()}" value="Regresar"/>
                 </h:panelGrid>

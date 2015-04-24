@@ -5,12 +5,15 @@
  */
 package mx.edu.itschapala.sistemas.biblioteca.vista;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
+import mx.edu.itschapala.sistemas.biblioteca.bl.AutorBLLocal;
 import mx.edu.itschapala.sistemas.biblioteca.bl.LibroBLLocal;
+import mx.edu.itschapala.sistemas.biblioteca.modelo.AutorLibro;
 import mx.edu.itschapala.sistemas.biblioteca.modelo.Libro;
 
 /**
@@ -20,19 +23,25 @@ import mx.edu.itschapala.sistemas.biblioteca.modelo.Libro;
 @ManagedBean
 @SessionScoped
 public class LibroBean {
+   
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------   
 //                                                                  Llamadas a los EJB
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     @EJB
     private LibroBLLocal libroBL;
+     @EJB
+    private AutorBLLocal autorBL;
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //                                                                   Caracteristicas
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     private List<Libro>lista;
-    private Libro libro;
+    private Libro libro;//objeto no autoadministrado
     private Accion accion;
+    private List<AutorLibro> listaAutorLibro;
+    private AutorLibro autorLibro;
+    private int autorSeleccionado;//variable para el combo de autor
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //                                                                     Constructor obligatorio
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -59,13 +68,34 @@ public class LibroBean {
     public void setLibro(Libro libro) {
         this.libro = libro;
     }
+
+    public AutorLibro getAutorLibro() {
+        return autorLibro;
+    }
+
+    public void setAutorLibro(AutorLibro autorLibro) {
+        this.autorLibro = autorLibro;
+    }
+
+    public List<AutorLibro> getListaAutorLibro() {
+        return listaAutorLibro;
+    }
+
+    public int getAutorSeleccionado() {
+        return autorSeleccionado;
+    }
+
+    public void setAutorSeleccionado(int autorSeleccionado) {
+        this.autorSeleccionado = autorSeleccionado;
+    }
+    
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 //                                                                   Acciones
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 public String procesarPeticion(){
     switch(accion){
         case NUEVO:
-            libroBL.registrar(libro);
+            libroBL.registrar(libro,listaAutorLibro);
             break;
         case EDITAR:
             libroBL.modificar(libro);
@@ -93,6 +123,8 @@ public String procesarCancelar(){
 public void prepararNuevo(ActionEvent e){
     libro=new Libro();
     accion=Accion.NUEVO;
+    listaAutorLibro=new ArrayList<>();
+    autorLibro=new AutorLibro();
 }
 public void prepararEditar(ActionEvent e){
     accion=Accion.EDITAR;
@@ -100,5 +132,11 @@ public void prepararEditar(ActionEvent e){
 
 public void prepararEliminar(ActionEvent e){
     accion=Accion.ELIMINAR;
+}
+
+public void agregarAutor(ActionEvent e){
+    autorLibro=new AutorLibro();
+    autorLibro.setIdAutor(autorBL.getPorId(autorSeleccionado));
+    listaAutorLibro.add(autorLibro);
 }
 }

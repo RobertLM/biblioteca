@@ -7,6 +7,7 @@ package mx.edu.itschapala.sistemas.biblioteca.bl;
 
 import java.util.List;
 import javax.ejb.Local;
+import mx.edu.itschapala.sistemas.biblioteca.modelo.AutorLibro;
 import mx.edu.itschapala.sistemas.biblioteca.modelo.Libro;
 
 /**
@@ -16,7 +17,7 @@ import mx.edu.itschapala.sistemas.biblioteca.modelo.Libro;
 @Local
 public interface LibroBLLocal {
 
-    boolean registrar(Libro libro);
+    boolean registrar(Libro libro, List<AutorLibro> autores);
 
     boolean eliminar(Libro libro);
 
